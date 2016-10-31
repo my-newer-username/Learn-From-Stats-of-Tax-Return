@@ -12,6 +12,7 @@ Created on Mon Oct 31 01:54:34 2016
 """
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib
 
 dirLoc = '/home/cz/ML/Incubator/Project/'
 class1 = []
@@ -72,7 +73,8 @@ class3 = [x*1000 for x in class3]
 class4 = [x*1000 for x in class4]
 """
 #%%
-plt.figure(figsize=(12,6))
+matplotlib.rcParams.update({'font.size': 22})
+plt.figure(figsize=(24,12))
 "For unknown reason, year 2011 is outliner. To see year 2011, add 2011 to time."
 time=[2009,2010,2012,2013,2014]
 time_str = [str(x) for x in time]
@@ -84,6 +86,6 @@ plt.xticks(time,time_str)
 plt.xlabel('year')
 plt.ylabel('Passive Investment Income')
 plt.legend(['Total Income: < 50K','Total Income: 50K ~ 100K','Total Income: 100K ~ 200K','Total Income: > 200K'],loc=7)
-plt.title('Passive Investment Income of Different Class after Financial Crisis 2008')
-plt.savefig('RiskyInvestmentIncome')
+plt.title('Passive Investment Income of Different Financial Classes after Financial Crisis 2008')
+plt.savefig('InvestmentIncome')
 plt.show()

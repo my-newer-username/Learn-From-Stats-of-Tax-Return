@@ -7,6 +7,7 @@ Created on Sun Oct 30 22:54:49 2016
 """
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib
 from pyzipcode import ZipCodeDatabase
 
 dirLoc = '/home/cz/ML/Incubator/Project/'
@@ -53,8 +54,10 @@ for i in ratio.index.values[0:number]:
     print(i)
     myzip = str(i).zfill(5)
     xticks.append(myzip+'_'+zcdb[myzip].state)
+    
 #%%
-plt.figure(figsize=(12,6))
+matplotlib.rcParams.update({'font.size': 22})
+plt.figure(figsize=(24,12))
 plt.bar(range(number),y, align='center',alpha=0.3)
 plt.xlim(-1,number)
 plt.xticks(range(number),xticks)
